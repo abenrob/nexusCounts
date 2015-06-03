@@ -1,0 +1,62 @@
+@import url(fonts/MyriadPro-Regular.otf);
+body { 
+    margin:0; 
+    padding:0;
+    font-family: 'MyriadPro-Regular', serif;
+}
+#counter {
+    position: fixed;
+    z-index: 2000;
+    bottom: 20px;
+    left: 20px;
+    color:white;
+}
+#counter.hidden {
+    display: none;
+}
+#counter p{
+    margin: 0;
+}
+.countTitle {
+    font-size: 15px;
+    line-height: 20px;
+}
+#curYear,#curCount, #curCountries {
+    font-size: 32px;
+    line-height: 40px;
+} 
+#curYear {
+    margin-bottom: 10px !important;
+}  
+#map { 
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    width:100%; 
+}
+#playControl {
+    cursor: pointer;
+    background-image: url(play.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3000;
+}
+#rePlayControl {
+    display: none;
+    cursor: pointer;
+    background-color: rgb(255, 188, 15);
+    position: fixed;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-align: center;
+    padding: 6px 15px 5px;
+    top: 15px;
+    right: 20px;
+    z-index: 3000;
+}
