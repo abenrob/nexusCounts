@@ -1,0 +1,25 @@
+{
+  "name": "nexusCounts",
+  "version": "0.0.2",
+  "description": "cartodb torque visualization of nexus customers",
+  "main": "map.js",
+  "scripts": {
+    "ug": "uglifyjs map.js -c -m -r '$,_' -o map.min.js",
+    "inserts": "node build.js",
+    "build-dist": "npm run ug && npm run inserts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abenrob/nexusCounts.git"
+  },
+  "author": "",
+  "license": "non-licensed",
+  "bugs": {
+    "url": "https://github.com/abenrob/nexusCounts/issues"
+  },
+  "homepage": "https://github.com/abenrob/nexusCounts",
+  "devDependencies": {
+    "uglify-js": "^2.4.23",
+    "replace": "^0.3.0"
+  }
+}

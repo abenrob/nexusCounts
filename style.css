@@ -1,8 +1,8 @@
-@import url(fonts/MyriadPro-Regular.otf);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 body { 
     margin:0; 
     padding:0;
-    font-family: 'MyriadPro-Regular', serif;
+    font-family: 'Droid Sans', sans-serif;
 }
 #counter {
     position: fixed;
@@ -35,10 +35,6 @@ body {
     width:100%; 
 }
 #playControl {
-    cursor: pointer;
-    background-image: url(play.png);
-    background-repeat: no-repeat;
-    background-position: center;
     background-color: rgba(255, 255, 255, 0.5);
     position: fixed;
     top: 0;
@@ -46,6 +42,32 @@ body {
     bottom: 0;
     left: 0;
     z-index: 3000;
+}
+.play-button {
+    height: 190px;
+    width: 190px;    
+    border: 16px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    font-size: 170px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    margin-top: -110px;
+    margin-left: -110px;
+}
+.play-button span {
+    padding-left: 40px;
+}
+.play-button:hover {
+    border: 16px solid rgba(255, 188, 15, 0.5);
+    color: rgba(255, 188, 15, 0.5);
+    -webkit-transition: border 100ms linear, color 100ms linear;
+    -moz-transition: border 100ms linear, color 100ms linear;
+    -o-transition: border 100ms linear, color 100ms linear;
+    -ms-transition: border 100ms linear, color 100ms linear;
+    transition: border 100ms linear, color 100ms linear;
 }
 #rePlayControl {
     display: none;
@@ -59,4 +81,13 @@ body {
     top: 15px;
     right: 20px;
     z-index: 3000;
+}
+
+#rePlayControl:hover {
+    background-color: rgb(240, 170, 0);
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
 }
