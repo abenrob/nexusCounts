@@ -97,25 +97,39 @@ function setTorque(){
 
 // function that initializes torque layer
 function playTorque(){
+    var curTot = 0;
+    var curCountries = 0;
     // start at the beginning
     torqueLayer.setStep(1);
     // do stuff every time the frame changes
     torqueLayer.on('change:time', function(changes) {
         var torqueDate = changes.time.toDateString();
+        var torqueEpoch = changes.time.getTime();
+
         var tYear = changes.time.getFullYear()||firstDay.getFullYear();
         var tMonth = (changes.time.getMonth()||firstDay.getMonth())+1;
+        tMonth = tMonth ? tMonth : 0;
         if (tMonth < 10){tMonth = '0'+tMonth};
 
         // find count stats for current frame
-        var match = _.find(counts, function(rec){
-            var thisDate = new Date(rec.date).toDateString();
-            return thisDate == torqueDate;
+        // var match = _.find(counts, function(rec){
+        //     var thisDate = new Date(rec[0]).toDateString();
+        //     return thisDate == torqueDate;
+        // });
+
+        var lessOrEqual = _.filter(counts, function(rec){
+            return rec[0] <= torqueEpoch;
         });
 
-        // if we find a match, update counters
+        var match;
+        match = _.max(lessOrEqual, function(rec){
+            return rec[1];
+        });
+
+        //if we find a match, update counters
         if (match) {
-            curTot = match.count;
-            curCountries = match.countrylist.length;
+            curTot = match[1];
+            curCountries = match[2];
         }
 
         // update couter text
@@ -165,7 +179,7 @@ function countsPrep(counts){
     _.each(counts, function(epoch){
         counter = counter + epoch.count;
         countries = _.union(countries,epoch.countries);
-        outcouts.push({date: epoch.date, count: counter, countrylist: countries});
+        outcouts.push([epoch.date, counter, countries.length]);
     })
     return outcouts;
 };
@@ -191,7 +205,8 @@ $.ajax({
     cache: true,
     success: function (data) {
         // prep data
-        counts = countsPrep(data.rows);
+        counts = _.sortBy(countsPrep(data.rows), function(date){return date[0]});
+        console.log(counts);
         // get limits
         firstDay = new Date(counts[0].date);
         lastDay = new Date(counts[counts.length-1].date);
