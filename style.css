@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-body { 
-    margin:0; 
+body {
+    margin:0;
     padding:0;
     font-family: 'Droid Sans', sans-serif;
 }
@@ -24,15 +24,15 @@ body {
 #curYear,#curCount, #curCountries {
     font-size: 32px;
     line-height: 40px;
-} 
+}
 #curYear {
     margin-bottom: 10px !important;
-}  
-#map { 
-    position:absolute; 
-    top:0; 
-    bottom:0; 
-    width:100%; 
+}
+#map {
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:100%;
 }
 #playControl {
     background-color: rgba(255, 255, 255, 0.5);
@@ -45,30 +45,33 @@ body {
 }
 .play-button {
     height: 190px;
-    width: 190px;    
-    border: 16px solid rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
+    width: 190px;
     position: absolute;
     font-size: 170px;
     color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     top: 50%;
     left: 50%;
-    margin-top: -110px;
-    margin-left: -110px;
+    margin-top: -95px;
+    margin-left: -95px;
 }
-.play-button span {
-    padding-left: 40px;
+#play-svg {
+  width: 190px;
+  height: 190px;
 }
-.play-button:hover {
-    border: 16px solid rgba(255, 188, 15, 0.5);
-    color: rgba(255, 188, 15, 0.5);
-    -webkit-transition: border 100ms linear, color 100ms linear;
-    -moz-transition: border 100ms linear, color 100ms linear;
-    -o-transition: border 100ms linear, color 100ms linear;
-    -ms-transition: border 100ms linear, color 100ms linear;
-    transition: border 100ms linear, color 100ms linear;
+#play-svg path {
+  fill: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 100ms linear;
+  -moz-transition: all 100ms linear;
+  -o-transition: all 100ms linear;
+  -ms-transition: all 100ms linear;
+  transition: all 100ms linear;
 }
+
+#play-svg:hover path {
+  fill: rgba(255, 188, 15, 0.5);
+}
+
 #rePlayControl {
     display: none;
     cursor: pointer;

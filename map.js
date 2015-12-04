@@ -103,7 +103,6 @@ function playTorque(){
     torqueLayer.setStep(1);
     // do stuff every time the frame changes
     torqueLayer.on('change:time', function(changes) {
-        var torqueDate = changes.time.toDateString();
         var torqueEpoch = changes.time.getTime();
 
         var tYear = changes.time.getFullYear()||firstDay.getFullYear();
@@ -137,9 +136,9 @@ function playTorque(){
         $('#curYear').html(tYear+"/"+tMonth);
         $('#curCount').html(curTot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         $('#curCountries').html(curCountries.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-        // when we hit max 
-        if (changes.step === torqueLayer.options.steps) { 
-            // remove change watch  
+        // when we hit max
+        if (changes.step === torqueLayer.options.steps) {
+            // remove change watch
             torqueLayer.off('change:time');
             // pause in case changes object catches max before pauseMax
             torqueLayer.pause();
@@ -156,7 +155,7 @@ function playTorque(){
     torqueLayer.play();
     $('#playControl').fadeOut();
     $('#rePlayControl').fadeOut();
-    
+
 };
 
 // clear out to restart
@@ -206,7 +205,7 @@ $.ajax({
     success: function (data) {
         // prep data
         counts = _.sortBy(countsPrep(data.rows), function(date){return date[0]});
-        console.log(counts);
+        //console.log(counts);
         // get limits
         firstDay = new Date(counts[0].date);
         lastDay = new Date(counts[counts.length-1].date);
